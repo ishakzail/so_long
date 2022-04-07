@@ -37,7 +37,7 @@ char    **ft_read_map(t_game *game, char *path)
 		holder_map = ft_strjoin(holder, line);
 		ft_free(line, holder);
 	}
-    game->map = map_allo(game, holder_map);
+    game->map = map_alloc(game, holder_map);
     free(holder_map);
     close(fd);
 	return (game->map);
@@ -66,7 +66,10 @@ char	*check(char *line, char *holder)
 		free(holder);
 		exit(EXIT_FAILURE);
 	}
-	return (str = ft_strjoin(holder, line), free(line), free(holder), str);
+	str = ft_strjoin(holder, line);
+	free(line);
+	free(holder);
+	return (str);
 }
 
 void	ft_free(char *line, char *holder)
