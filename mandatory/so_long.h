@@ -45,4 +45,14 @@ typedef struct s_game
 	int		moves;
 }	t_game;
 
+char    **ft_read_map(t_game *game, char *path);
+int		map_correct_form(t_game *game);
+char	*check(char *line, char *holder);
+void	ft_free(char *line, char *holder);
+char	**fill_map(char *line, t_game *game);
+char	**map_alloc(t_game *game, char *line);
+char	*word_dup(char *str, int start, int finish);
+
+int		check_rectangular(t_game *game);
+
 #endif
