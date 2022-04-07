@@ -14,7 +14,8 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_M = mandatory/so_long.c\
+SRC_M = mandatory/so_long.c mandatory/ft_read_map.c mandatory/fill_map.c\
+		mandatory/checks.c
 	
 SRC_GNL = includes/gnl/get_next_line.c\
 
