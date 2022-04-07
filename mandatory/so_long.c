@@ -12,6 +12,30 @@
 
 #include "so_long.h"
 
+void    display_map(t_game *game)
+{
+    int i;
+
+    i = 0;
+    while (game->map[i] != '\0')
+        ft_printf("%s\n",game->map[i++]);
+}
+
+void check_map(t_game *game)
+{
+    if (!map_correct_form(game))
+    {
+        ft_printf("The map in not in the correct form\n");
+        exit(EXIT_FAILURE);
+    }
+    else if (!check_rectangular(game))
+    {
+        ft_printf("map is not rectangular\n");
+    }
+
+            
+}
+
 int	check_extention(char *str)
 {
 	int	i;
@@ -29,7 +53,7 @@ int	check_extention(char *str)
 
 int main(int ac, char **av)
 {
-    // t_game game;
+    t_game game;
     
     if (ac == 2)
     {
@@ -38,15 +62,14 @@ int main(int ac, char **av)
             ft_printf("The extention in invalid");
             return (0);
         }
-        else 
-        {
-            
-        }
     }
     else
     {
         ft_printf("Invalid number of argumets");
         return (0);
     }
+    game.map = ft_read_map(&game, av[1]);
+    check_map(&game);
 
+    display_map(&game);
 }
