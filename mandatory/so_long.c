@@ -17,7 +17,7 @@ void    display_map(t_game *game)
     int i;
 
     i = 0;
-    while (game->map[i] != '\0')
+    while (game->map[i])
         ft_printf("%s\n",game->map[i++]);
 }
 
@@ -32,6 +32,14 @@ void check_map(t_game *game)
     {
         ft_printf("map is not rectangular\n");
     }
+    else if (!check_line(game))
+    {
+        ft_printf("Map is invalid, it contains another caracters !\n");
+    }
+    else if (!check_walls(game))
+        ft_printf("Error in walls");
+    else 
+        display_map(game);
 
             
 }
@@ -70,6 +78,5 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
-
-    display_map(&game);
+    check_line(&game);
 }

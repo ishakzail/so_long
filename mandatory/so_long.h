@@ -55,4 +55,7 @@ char	*word_dup(char *str, int start, int finish);
 
 int		check_rectangular(t_game *game);
 
+int 	check_line(t_game *game);
+
+int		check_walls(t_game *game);
 #endif
