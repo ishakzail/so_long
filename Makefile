@@ -14,6 +14,8 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+MLX =  -lmlx -framework OpenGL -framework AppKit
+
 SRC_M = mandatory/so_long.c mandatory/ft_read_map.c mandatory/fill_map.c\
 		mandatory/checks.c
 	
@@ -36,7 +38,7 @@ OBJ_PRINTF = $(SRC_PRINTF:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ_M) $(OBJ_GNL) $(OBJ_PRINTF) $(HEADERS)
-	$(CC) $(FLAGS) $(OBJ_M) $(OBJ_GNL) $(OBJ_PRINTF) -o $(NAME)
+	$(CC) $(FLAGS) $(MLX) $(OBJ_M) $(OBJ_GNL) $(OBJ_PRINTF) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ_M) $(OBJ_GNL) $(OBJ_PRINTF)
