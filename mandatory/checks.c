@@ -101,12 +101,17 @@ int	check_map_objects(t_game *game)
 
 	if (!check_obj(game, 'P') && !check_obj(game, 'E') && !check_obj(game, 'C'))
 		return (ft_printf("All objects are missing"), 0);
+	else if ( !check_obj(game, 'E') && !check_obj(game, 'P'))
+		return (ft_printf("The exit and the player are missing !"), 0);
+	else if ( !check_obj(game, 'E') && !check_obj(game, 'C'))
+		return (ft_printf("The exit and the collectible are missing !"), 0);
+	else if ( !check_obj(game, 'P') && !check_obj(game, 'C'))
+		return (ft_printf("The player and the collectible are missing !"), 0);
 	else if (check_obj(game, 'P') != 1)
-		return (ft_printf("Map must contains only one player"), 0);
+		return (ft_printf("The map must contains only one player !"), 0);
 	else if (check_obj(game, 'E') != 1)
-		return (ft_printf("Map must contains only one exit"), 0);
+		return (ft_printf("The map must contains only one exit !"), 0);
 	else if (check_obj(game, 'C') < 1)
-		return (ft_printf("Map must contains at least one collectible"), 0);
-
+		return (ft_printf("The map must contains at least one collectible !"), 0);
 	return (1);
 }
