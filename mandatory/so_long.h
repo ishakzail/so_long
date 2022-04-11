@@ -53,9 +53,12 @@ char	**fill_map(char *line, t_game *game);
 char	**map_alloc(t_game *game, char *line);
 char	*word_dup(char *str, int start, int finish);
 
+/**************** checks ****************/
+
 int		check_rectangular(t_game *game);
-
 int 	check_line(t_game *game);
-
 int		check_walls(t_game *game);
+int		check_obj(t_game *game, char c);
+int		check_map_objects(t_game *game);
+
 #endif
