@@ -29,15 +29,13 @@ void check_map(t_game *game)
         exit(EXIT_FAILURE);
     }
     else if (!check_rectangular(game))
-    {
         ft_printf("map is not rectangular\n");
-    }
     else if (!check_line(game))
-    {
         ft_printf("Map is invalid, it contains another caracters !\n");
-    }
     else if (!check_walls(game))
         ft_printf("Error in walls");
+    else if (!check_map_objects(game))
+        ft_printf("");
     else 
         display_map(game);
 
@@ -58,6 +56,16 @@ int	check_extention(char *str)
 		return (1);
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	void	*mlx;
+// 	void	*mlx_win;
+
+// 	mlx = mlx_init();
+// 	mlx_win = mlx_new_window(mlx, 720, 480, "Hello world!");
+// 	mlx_loop(mlx);
+// }
 
 int main(int ac, char **av)
 {
