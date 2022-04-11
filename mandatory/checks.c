@@ -71,3 +71,42 @@ int	check_walls(t_game *game)
 	}
 	return (1);
 }
+
+int	check_obj(t_game *game, char c)
+{
+	int	i;
+	int	j;
+	int len;
+	int obj;
+
+	obj = 0;
+	i = 1;
+	len = ft_strlen(game->map[i]) - 1;
+	while (game->map[i])
+	{
+		j = 1;
+		while (j < len)
+		{
+			if (game->map[i][j] == c)
+				obj++;
+			j++;
+		}
+		i++;
+	}
+	return (obj);
+}
+
+int	check_map_objects(t_game *game)
+{
+
+	if (!check_obj(game, 'P') && !check_obj(game, 'E') && !check_obj(game, 'C'))
+		return (ft_printf("All objects are missing"), 0);
+	else if (check_obj(game, 'P') != 1)
+		return (ft_printf("Map must contains only one player"), 0);
+	else if (check_obj(game, 'E') != 1)
+		return (ft_printf("Map must contains only one exit"), 0);
+	else if (check_obj(game, 'C') < 1)
+		return (ft_printf("Map must contains at least one collectible"), 0);
+
+	return (1);
+}
