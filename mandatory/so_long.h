@@ -53,7 +53,9 @@ char	**fill_map(char *line, t_game *game);
 char	**map_alloc(t_game *game, char *line);
 char	*word_dup(char *str, int start, int finish);
 
-/**************** checks ****************/
+void	free_map(t_game *game);
+
+/**************** Checks ****************/
 
 int		check_rectangular(t_game *game);
 int 	check_line(t_game *game);
@@ -61,4 +63,11 @@ int		check_walls(t_game *game);
 int		check_obj(t_game *game, char c);
 int		check_map_objects(t_game *game);
 
+/**************** Draw ****************/
+
+void	display_map(t_game *game);
+void	draw(t_game *game);
+void	init_textures(t_game *game);
+void	image_drawer(t_game *game);
+void	drawer(t_game *game, int i, int j);
 #endif

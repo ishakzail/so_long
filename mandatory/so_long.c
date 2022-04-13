@@ -12,36 +12,44 @@
 
 #include "so_long.h"
 
-void    display_map(t_game *game)
-{
-    int i;
+// void    display_map(t_game *game)
+// {
+//     int i;
 
-    i = 0;
-    while (game->map[i])
-        ft_printf("%s\n",game->map[i++]);
-}
+//     i = 0;
+//     while (game->map[i])
+//         ft_printf("%s\n",game->map[i++]);
+// }
 
 void check_map(t_game *game)
 {
     if (!map_correct_form(game))
-    {
-        ft_printf("The map in not in the correct form\n");
-        exit(EXIT_FAILURE);
-    }
+        return (ft_printf("The map in not in the correct form\n"),exit(EXIT_FAILURE));
     else if (!check_rectangular(game))
-        ft_printf("map is not rectangular\n");
+        return(ft_printf("map is not rectangular\n"),exit(EXIT_FAILURE));
     else if (!check_line(game))
         return (ft_printf("Map is invalid, it contains another caracters !\n"),exit(EXIT_FAILURE));
     else if (!check_walls(game))
-        ft_printf("Error in walls");
+        return (ft_printf("Error in walls"), exit(EXIT_FAILURE));
     else if (!check_map_objects(game))
-        ft_printf("");
-    else 
-        display_map(game);
-
+        return (ft_printf(""),exit(EXIT_FAILURE));
+    // else 
+    //     display_map(game);
             
 }
 
+void	free_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map[i])
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+}
 int	check_extention(char *str)
 {
 	int	i;
@@ -56,16 +64,6 @@ int	check_extention(char *str)
 		return (1);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	void	*mlx;
-// 	void	*mlx_win;
-
-// 	mlx = mlx_init();
-// 	mlx_win = mlx_new_window(mlx, 720, 480, "Hello world!");
-// 	mlx_loop(mlx);
-// }
 
 int main(int ac, char **av)
 {
@@ -86,4 +84,8 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
+    game.mlx = mlx_init();
+    display_map(&game);
+    init_textures(&game);
+    mlx_loop(game.mlx);
 }
