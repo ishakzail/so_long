@@ -55,7 +55,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	p = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!p)
 		return (NULL);
-	while (s1[i])
+	while (s1[i] != '\0')
 		p[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
@@ -84,6 +84,8 @@ char	*get_next_line(int fd)
 		n = read(fd, buff, 1);
 		if (n <= 0)
 			continue ;
+		if(n > 0 && buff[0] == '\0')
+			return (NULL);
 		d_ptr = line;
 		line = ft_strjoin(line, buff);
 		free(d_ptr);
