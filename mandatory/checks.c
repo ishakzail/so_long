@@ -19,6 +19,7 @@ int	check_rectangular(t_game *game)
 	lines = 1;
 	while (game->map[lines])
 	{
+		// ft_printf("len line == %d\n",ft_strlen(game->map[lines]));
 		if (ft_strlen(game->map[0]) != ft_strlen(game->map[lines]))
 			return (0);
 		lines++;
@@ -38,8 +39,8 @@ int check_line(t_game *game)
 	{
 		j = -1;
 		while (++j < len)
-			if (game->map[i][j] != '0' && game->map[i][j] != '1' && game->map[i][j] != 'E'
-			&& game->map[i][j] != 'C' && game->map[i][j] != 'P')
+			if (game->map[i][j] != 48 && game->map[i][j] != 49 && game->map[i][j] != 69
+			&& game->map[i][j] != 67 && game->map[i][j] != 80)
 			return (0);
 	}
 	return (1);
