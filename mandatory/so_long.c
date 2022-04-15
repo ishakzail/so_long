@@ -12,14 +12,14 @@
 
 #include "so_long.h"
 
-// void    display_map(t_game *game)
-// {
-//     int i;
+void    print_map(t_game *game)
+{
+    int i;
 
-//     i = 0;
-//     while (game->map[i])
-//         ft_printf("%s\n",game->map[i++]);
-// }
+    i = 0;
+    while (game->map[i])
+        ft_printf("%s\n",game->map[i++]);
+}
 
 void check_map(t_game *game)
 {
@@ -84,8 +84,9 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
-    game.mlx = mlx_init();
-    display_map(&game);
-    init_textures(&game);
-    mlx_loop(game.mlx);
+    print_map(&game);
+    // game.mlx = mlx_init();
+    // display_map(&game);
+    // init_textures(&game);
+    // mlx_loop(game.mlx);
 }
