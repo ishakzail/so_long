@@ -38,7 +38,7 @@ char	**map_alloc(t_game *game, char *line)
 			k++;
 		i++;
 	}
-	game->map = malloc((k + 1) * sizeof(char *));
+	game->map = (char **)malloc((k + 1) * sizeof(char *));
 	if (!game->map)
 		return (NULL);
 	return (fill_map(line, game));
@@ -63,6 +63,7 @@ char	**fill_map(char *line, t_game *game)
 		}
 		i++;
 	}
+	
 	game->map[k] = word_dup(line, j, i);
 	game->map[++k] = 0;
 	return (game->map);
