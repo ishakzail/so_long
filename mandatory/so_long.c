@@ -65,6 +65,13 @@ int	check_extention(char *str)
 	return (0);
 }
 
+int key_print(int n , t_game *game)
+{
+    (void ) game;
+    ft_printf("%d\n", n);
+    return (0);
+}
+
 int main(int ac, char **av)
 {
     t_game game;
@@ -85,8 +92,9 @@ int main(int ac, char **av)
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
     print_map(&game);
-    // game.mlx = mlx_init();
-    // display_map(&game);
-    // init_textures(&game);
-    // mlx_loop(game.mlx);
+    game.mlx = mlx_init();
+    display_map(&game);
+    init_textures(&game);
+    mlx_key_hook(game.win,key_print,&game);
+    mlx_loop(game.mlx);
 }
