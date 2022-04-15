@@ -46,7 +46,7 @@ void	init_textures(t_game *game)
 	game->img_backg = mlx_xpm_file_to_image
 		(game->mlx, "includes/assets/back.xpm", &game->img_w, &game->img_h);
 	game->img_collect = mlx_xpm_file_to_image
-		(game->mlx, "includes/assets/colect.xpm", &game->img_w, &game->img_h);
+		(game->mlx, "includes/assets/collect.xpm", &game->img_w, &game->img_h);
 	game->img_exit = mlx_xpm_file_to_image
 		(game->mlx, "includes/assets/close.xpm", &game->img_w, &game->img_h);
 	if (!game->img_player || !game->img_wall
