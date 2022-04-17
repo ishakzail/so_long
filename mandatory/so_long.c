@@ -91,7 +91,8 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
-    print_map(&game);
+    // print_map(&game);
+    player_position(&game);
     game.mlx = mlx_init();
     display_map(&game);
     init_textures(&game);
