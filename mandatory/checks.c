@@ -116,3 +116,27 @@ int	check_map_objects(t_game *game)
 		return (ft_printf("The map must contains at least one collectible !"), 0);
 	return (1);
 }
+
+int	check_0(t_game *game)
+{
+	int	i;
+	int	j;
+	int count;
+
+	i = 1;
+	count = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == '0')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	if (count == 0)
+		return (ft_printf("Map is invalid !"), 0);
+	return (1);
+}
