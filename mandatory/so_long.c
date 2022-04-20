@@ -12,15 +12,6 @@
 
 #include "so_long.h"
 
-void    print_map(t_game *game)
-{
-    int i;
-
-    i = 0;
-    while (game->map[i])
-        ft_printf("%s\n",game->map[i++]);
-}
-
 void check_map(t_game *game)
 {
     if (!map_correct_form(game))
@@ -32,6 +23,8 @@ void check_map(t_game *game)
     else if (!check_walls(game))
         return (ft_printf("Error in walls"), exit(EXIT_FAILURE));
     else if (!check_map_objects(game))
+        return (ft_printf(""),exit(EXIT_FAILURE));
+    else if (!check_0(game))
         return (ft_printf(""),exit(EXIT_FAILURE));
     // else 
     //     display_map(game);
@@ -50,6 +43,7 @@ void	free_map(t_game *game)
 	}
 	free(game->map);
 }
+
 int	check_extention(char *str)
 {
 	int	i;
@@ -65,11 +59,13 @@ int	check_extention(char *str)
 	return (0);
 }
 
-int key_print(int n , t_game *game)
+
+void	win(t_game *game)
 {
-    (void ) game;
-    ft_printf("%d\n", n);
-    return (0);
+	ft_printf("Congratulations, you found all the Eggs and the exit.\n");
+	ft_printf("You won!\n");
+	ft_printf("Is %d moves really the best you can do?\n", game->moves);
+	exit(EXIT_SUCCESS);
 }
 
 int main(int ac, char **av)
@@ -91,11 +87,14 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
-    // print_map(&game);
+    //print_map(&game);
+    map_init(&game);
     player_position(&game);
     game.mlx = mlx_init();
     display_map(&game);
     init_textures(&game);
-    mlx_key_hook(game.win,key_print,&game);
+    mlx_hook(game.win, 17, (1L << 2), destroy_window , &game);
+    mlx_hook(game.win, 2, (1L << 0), m_hook , &game);
     mlx_loop(game.mlx);
+    free_map(&game);
 }
