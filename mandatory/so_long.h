@@ -23,6 +23,12 @@
 # include <mlx.h>
 # include <math.h>
 
+# define A 0
+# define S 1
+# define D 2
+# define W 13
+# define ESC 53
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -54,14 +60,16 @@ char	**map_alloc(t_game *game, char *line);
 char	*word_dup(char *str, int start, int finish);
 
 void	free_map(t_game *game);
+void	map_init(t_game *game);
 
 /**************** Checks ****************/
 
-int		check_rectangular(t_game *game);
-int 	check_line(t_game *game);
-int		check_walls(t_game *game);
-int		check_obj(t_game *game, char c);
-int		check_map_objects(t_game *game);
+int	check_rectangular(t_game *game);
+int check_line(t_game *game);
+int	check_walls(t_game *game);
+int	check_obj(t_game *game, char c);
+int	check_map_objects(t_game *game);
+int	check_0(t_game *game);
 
 /**************** Draw ****************/
 
@@ -72,6 +80,17 @@ void	image_drawer(t_game *game);
 void	drawer(t_game *game, int i, int j);
 
 /**************** Move Player ****************/
+
 void    player_position(t_game *game);
+
+int		destroy_window(t_game *game);
+void	move_player(t_game *game, int i, int j);
+int		m_hook(int key_code, t_game *game);
+void	move_a(t_game *game);
+void	move_d(t_game *game);
+void	move_w(t_game *game);
+void	move_s(t_game *game);
+
+void	win(t_game *game);
 
 #endif
