@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLX =  -lmlx -framework OpenGL -framework AppKit
 
 SRC_M = mandatory/so_long.c mandatory/ft_read_map.c mandatory/fill_map.c\
-		mandatory/checks.c mandatory/ft_draw.c mandatory/move_player.c \
+		mandatory/checks.c mandatory/ft_draw.c mandatory/move_player.c  mandatory/moves.c\
 	
 SRC_GNL = includes/gnl/get_next_line.c\
 
