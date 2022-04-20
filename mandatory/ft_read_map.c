@@ -51,7 +51,7 @@ int	map_correct_form(t_game *game)
 	while (game->map[i] != '\0')
 		i++;
 	if (i < 3)
-		return (ft_printf("the map is invalid!!"), 0);
+		return (ft_printf("the map is invalid!!\n"), 0);
 	return (1);
 }
 
@@ -61,7 +61,7 @@ char	*check(char *line, char *holder)
 
 	if (!line || *line != '1')
 	{
-		ft_printf("invalid map!!");
+		ft_printf("invalid map!!\n");
 		free(line);
 		free(holder);
 		exit(EXIT_FAILURE);
