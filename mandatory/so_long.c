@@ -65,7 +65,6 @@ void	win(t_game *game)
 	ft_printf("Congratulations, you found all the Eggs and the exit.\n");
 	ft_printf("You won!\n");
 	ft_printf("Is %d moves really the best you can do?\n", game->moves);
-	exit(EXIT_SUCCESS);
 }
 
 int main(int ac, char **av)
@@ -87,7 +86,6 @@ int main(int ac, char **av)
     }
     game.map = ft_read_map(&game, av[1]);
     check_map(&game);
-    //print_map(&game);
     map_init(&game);
     player_position(&game);
     game.mlx = mlx_init();
@@ -97,4 +95,5 @@ int main(int ac, char **av)
     mlx_hook(game.win, 2, (1L << 0), m_hook , &game);
     mlx_loop(game.mlx);
     free_map(&game);
+    free(game.mlx);
 }
