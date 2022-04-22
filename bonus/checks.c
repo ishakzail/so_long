@@ -40,7 +40,7 @@ int check_line(t_game *game)
 		j = -1;
 		while (++j < len)
 			if (game->map[i][j] != 48 && game->map[i][j] != 49 && game->map[i][j] != 69
-			&& game->map[i][j] != 67 && game->map[i][j] != 80)
+			&& game->map[i][j] != 67 && game->map[i][j] != 80 && game->map[i][j] != 78)
 			return (0);
 	}
 	return (1);
@@ -114,6 +114,8 @@ int	check_map_objects(t_game *game)
 		return (ft_printf("The map must contains only one exit !"), 0);
 	else if (check_obj(game, 'C') < 1)
 		return (ft_printf("The map must contains at least one collectible !"), 0);
+    else if (check_obj(game, 'N') < 1)
+		return (ft_printf("The map must contains at least one enemie !"), 0);
 	return (1);
 }
 
