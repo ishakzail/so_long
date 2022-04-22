@@ -82,6 +82,8 @@ void	init_textures(t_game *game);
 void	image_drawer(t_game *game);
 void	drawer(t_game *game, int i, int j);
 
+void    print_moves(t_game *game);
+
 /**************** Move Player ****************/
 
 void    player_position(t_game *game);
