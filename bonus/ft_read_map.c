@@ -11,3 +11,69 @@
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+char    **ft_read_map(t_game *game, char *path)
+{
+    int		fd;
+	char	*line;
+	char	*holder_map;
+	char	*holder;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+	{
+		perror("");
+		exit(EXIT_FAILURE);
+	}
+	holder = ft_strdup("");
+	line = get_next_line(fd);
+	holder_map = check(line, holder);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		holder = holder_map;
+		holder_map = ft_strjoin(holder, line);
+		ft_free(line, holder);
+	}
+    game->map = map_alloc(game, holder_map);
+    free(holder_map);
+    close(fd);
+	return (game->map);
+}
+
+int	map_correct_form(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map[i] != '\0')
+		i++;
+	if (i < 3)
+		return (ft_printf("the map is invalid!!\n"), 0);
+	return (1);
+}
+
+char	*check(char *line, char *holder)
+{
+	char	*str;
+
+	if (!line || *line != '1')
+	{
+		ft_printf("invalid map!!\n");
+		free(line);
+		free(holder);
+		exit(EXIT_FAILURE);
+	}
+	str = ft_strjoin(holder, line);
+	free(line);
+	free(holder);
+	return (str);
+}
+
+void	ft_free(char *line, char *holder)
+{
+	free(line);
+	free(holder);
+}
