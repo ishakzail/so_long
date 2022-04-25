@@ -46,7 +46,6 @@ int	destroy_window(t_game *game)
 
 void	move_player(t_game *game, int i, int j)
 {
-    // ft_printf("n->collect == %d\n", game->n_collect);
 	if (game->map[game->p_x + i][game->p_y + j] != '1')
 	{
 		if (game->map[game->p_x + i][game->p_y + j] == 'C')
