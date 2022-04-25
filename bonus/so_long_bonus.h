@@ -97,5 +97,6 @@ void	move_w(t_game *game);
 void	move_s(t_game *game);
 
 void	win(t_game *game);
+void	lose();
 
 #endif
