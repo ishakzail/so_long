@@ -12,6 +12,12 @@
 
 #include "so_long_bonus.h"
 
+void	lose()
+{
+	ft_printf("GAME OVER, YOU LOSE");
+	exit(EXIT_FAILURE);
+}
+
 void    player_position(t_game *game)
 {
     static int i;
@@ -46,13 +52,12 @@ int	destroy_window(t_game *game)
 
 void	move_player(t_game *game, int i, int j)
 {
-    // ft_printf("n->collect == %d\n", game->n_collect);
 	if (game->map[game->p_x + i][game->p_y + j] != '1')
 	{
 		if (game->map[game->p_x + i][game->p_y + j] == 'C')
 			game->n_collect--;
         else if (game->map[game->p_x + i][game->p_y + j] == 'N')
-            exit(EXIT_SUCCESS);
+            lose();
 		else if (game->map[game->p_x + i][game->p_y + j] == 'E')
 		{
 			if (game->n_collect == 0)
