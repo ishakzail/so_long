@@ -91,7 +91,6 @@ int main(int ac, char **av)
     game.mlx = mlx_init();
     display_map(&game);
     init_textures(&game);
-    print_moves(&game);
     mlx_hook(game.win, 17, (1L << 2), destroy_window , &game);
     mlx_hook(game.win, 2, (1L << 0), m_hook , &game);
     mlx_loop(game.mlx);
