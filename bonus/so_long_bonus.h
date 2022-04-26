@@ -6,7 +6,7 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:21:12 by izail             #+#    #+#             */
-/*   Updated: 2022/04/22 14:22:36 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/26 17:46:19 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_game
 	void	*img_player;
 	void	*img_collect;
 	void	*img_exit;
-    void    *img_enemies;
+	void	*img_enemies;
 	int		map_w;
 	int		map_h;
 	int		img_w;
@@ -46,35 +46,34 @@ typedef struct s_game
 	int		n_collect;
 	int		n_player;
 	int		n_exit;
-    int     pos_enemies;
+	int		pos_enemies;
 	int		p_x;
 	int		p_y;
-    int     e_x;
-    int     e_y;
+	int		e_x;
+	int		e_y;
 	int		moves;
 	int		loop;
 	int		count;
 }	t_game;
 
-char    **ft_read_map(t_game *game, char *path);
+char	**ft_read_map(t_game *game, char *path);
 int		map_correct_form(t_game *game);
 char	*check(char *line, char *holder);
 void	ft_free(char *line, char *holder);
 char	**fill_map(char *line, t_game *game);
 char	**map_alloc(t_game *game, char *line);
 char	*word_dup(char *str, int start, int finish);
-
 void	free_map(t_game *game);
 void	map_init(t_game *game);
 
 /**************** Checks ****************/
 
-int	check_rectangular(t_game *game);
-int check_line(t_game *game);
-int	check_walls(t_game *game);
-int	check_obj(t_game *game, char c);
-int	check_map_objects(t_game *game);
-int	check_0(t_game *game);
+int		check_rectangular(t_game *game);
+int		check_line(t_game *game);
+int		check_walls(t_game *game);
+int		check_obj(t_game *game, char c);
+int		check_map_objects(t_game *game);
+int		check_0(t_game *game);
 
 /**************** Draw ****************/
 
@@ -84,12 +83,9 @@ void	init_textures(t_game *game);
 void	image_drawer(t_game *game);
 void	drawer(t_game *game, int i, int j);
 
-void    print_moves(t_game *game);
-
 /**************** Move Player ****************/
 
-void    player_position(t_game *game);
-
+void	player_position(t_game *game);
 int		destroy_window(t_game *game);
 void	move_player(t_game *game, int i, int j);
 int		m_hook(int key_code, t_game *game);
@@ -97,10 +93,14 @@ void	move_a(t_game *game);
 void	move_d(t_game *game);
 void	move_w(t_game *game);
 void	move_s(t_game *game);
-
 void	win(t_game *game);
-void	lose();
 
-int	animation(t_game *game);
+/**************** Animation ****************/
+
+int		animation(t_game *game);
+void	tombdraw(t_game *game);
+void	lose(t_game *game);
+void	print_moves(t_game *game);
+char	*ft_itoa(int n);
 
 #endif

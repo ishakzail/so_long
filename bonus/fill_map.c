@@ -6,7 +6,7 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:15:25 by izail             #+#    #+#             */
-/*   Updated: 2022/04/22 14:15:29 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/26 16:51:03 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	**fill_map(char *line, t_game *game)
 		}
 		i++;
 	}
-	
 	game->map[k] = word_dup(line, j, i);
 	game->map[++k] = 0;
 	return (game->map);
@@ -78,8 +77,8 @@ void	map_init(t_game *game)
 	game->map_w = 0;
 	game->p_x = 0;
 	game->p_y = 0;
-    game->e_x = 0;
-    game->e_y = 0;
+	game->e_x = 0;
+	game->e_y = 0;
 	game->loop = 0;
 	game->pos_enemies = 1;
 	game->count = 0;

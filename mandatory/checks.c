@@ -6,7 +6,7 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 11:57:12 by izail             #+#    #+#             */
-/*   Updated: 2022/04/06 11:57:14 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/26 16:41:49 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	check_rectangular(t_game *game)
 	lines = 1;
 	while (game->map[lines])
 	{
-		// ft_printf("len line == %d\n",ft_strlen(game->map[lines]));
 		if (ft_strlen(game->map[0]) != ft_strlen(game->map[lines]))
 			return (0);
 		lines++;
@@ -27,11 +26,11 @@ int	check_rectangular(t_game *game)
 	return (1);
 }
 
-int check_line(t_game *game)
+int	check_line(t_game *game)
 {
 	int	i;
 	int	j;
-	int len;
+	int	len;
 
 	i = -1;
 	len = ft_strlen(game->map[i+1]);
