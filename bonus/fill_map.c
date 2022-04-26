@@ -80,4 +80,7 @@ void	map_init(t_game *game)
 	game->p_y = 0;
     game->e_x = 0;
     game->e_y = 0;
+	game->loop = 0;
+	game->pos_enemies = 1;
+	game->count = 0;
 }
