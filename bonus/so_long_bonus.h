@@ -52,6 +52,8 @@ typedef struct s_game
     int     e_x;
     int     e_y;
 	int		moves;
+	int		loop;
+	int		count;
 }	t_game;
 
 char    **ft_read_map(t_game *game, char *path);
@@ -98,5 +100,7 @@ void	move_s(t_game *game);
 
 void	win(t_game *game);
 void	lose();
+
+int	animation(t_game *game);
 
 #endif
