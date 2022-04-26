@@ -153,3 +153,33 @@ void    print_moves(t_game *game)
     mlx_string_put(game->mlx, game->win, 90, 15, 0xFFFF00, str);
     free(str);
 }
+
+int	animation(t_game *game)
+{
+	ft_printf("loop 1== %d\n", game->loop);
+	if (game->loop < 1000)
+	{
+		game->loop++;
+		return (0);
+	}
+	ft_printf("loop 2== %d\n", game->loop);
+	game->loop = 0;
+	if (game->pos_enemies == 1)
+		game->img_enemies = mlx_xpm_file_to_image
+			(game->mlx, "includes/assets/dragon_fly.xpm", &game->img_w, &game->img_h);
+	else if (game->pos_enemies == 2)
+		game->img_enemies = mlx_xpm_file_to_image
+			(game->mlx, "includes/assets/dragon_mid.xpm", &game->img_w, &game->img_h);
+	else if (game->pos_enemies == 3)
+		game->img_enemies = mlx_xpm_file_to_image
+			(game->mlx, "includes/assets/dragon_mini.xpm", &game->img_w, &game->img_h);
+	else if (game->pos_enemies == 4)
+	{
+		game->img_enemies = mlx_xpm_file_to_image
+			(game->mlx, "includes/assets/dragon_fly.xpm", &game->img_w, &game->img_h);
+		game->pos_enemies = 0;
+	}
+	draw(game);
+	game->pos_enemies++;
+	return (0);
+}
