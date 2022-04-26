@@ -34,6 +34,11 @@ void    player_position(t_game *game)
                 game->p_x = i;
                 game->p_y = j;
             }
+			else if (game->map[i][j] == 'N')
+			{
+				game->e_x = i;
+				game->e_y = j;
+			}
             j++;
         }
         i++;
@@ -75,7 +80,7 @@ void	move_player(t_game *game, int i, int j)
 		game->map[game->p_x][game->p_y] = '0';
 		game->p_x += i;
 		game->p_y += j;
-		ft_printf("Moves : %d\n", game->moves);
+		// ft_printf("Moves : %d\n", game->moves);
 		draw(game);
 	}
 }
