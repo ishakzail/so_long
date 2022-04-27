@@ -6,32 +6,32 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 15:31:45 by izail             #+#    #+#             */
-/*   Updated: 2022/04/16 15:31:46 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/27 16:04:18 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    player_position(t_game *game)
+void	player_position(t_game *game)
 {
-    static int i;
-    static int j;
+	static int	i;
+	static int	j;
 
-    i = 0;
-    while (game->map[i])
-    {
-        j = 0;
-        while (game->map[i][j])
-        {
-            if (game->map[i][j] == 'P')
-            {
-                game->p_x = i;
-                game->p_y = j;
-            }
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->p_x = i;
+				game->p_y = j;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 int	destroy_window(t_game *game)

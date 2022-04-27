@@ -6,10 +6,9 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 17:35:54 by izail             #+#    #+#             */
-/*   Updated: 2022/03/29 17:35:57 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/27 17:57:26 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -51,25 +50,24 @@ typedef struct s_game
 	int		moves;
 }	t_game;
 
-char    **ft_read_map(t_game *game, char *path);
+char	**ft_read_map(t_game *game, char *path);
 int		map_correct_form(t_game *game);
 char	*check(char *line, char *holder);
 void	ft_free(char *line, char *holder);
 char	**fill_map(char *line, t_game *game);
 char	**map_alloc(t_game *game, char *line);
 char	*word_dup(char *str, int start, int finish);
-
 void	free_map(t_game *game);
 void	map_init(t_game *game);
 
 /**************** Checks ****************/
 
-int	check_rectangular(t_game *game);
-int check_line(t_game *game);
-int	check_walls(t_game *game);
-int	check_obj(t_game *game, char c);
-int	check_map_objects(t_game *game);
-int	check_0(t_game *game);
+int		check_rectangular(t_game *game);
+int		check_line(t_game *game);
+int		check_walls(t_game *game);
+int		check_obj(t_game *game, char c);
+int		check_map_objects(t_game *game);
+int		check_0(t_game *game);
 
 /**************** Draw ****************/
 
@@ -81,8 +79,7 @@ void	drawer(t_game *game, int i, int j);
 
 /**************** Move Player ****************/
 
-void    player_position(t_game *game);
-
+void	player_position(t_game *game);
 int		destroy_window(t_game *game);
 void	move_player(t_game *game, int i, int j);
 int		m_hook(int key_code, t_game *game);
@@ -90,7 +87,6 @@ void	move_a(t_game *game);
 void	move_d(t_game *game);
 void	move_w(t_game *game);
 void	move_s(t_game *game);
-
 void	win(t_game *game);
 
 #endif

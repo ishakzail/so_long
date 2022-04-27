@@ -74,6 +74,8 @@ int		check_walls(t_game *game);
 int		check_obj(t_game *game, char c);
 int		check_map_objects(t_game *game);
 int		check_0(t_game *game);
+void	check_map(t_game *game);
+int		check_extention(char *str);
 
 /**************** Draw ****************/
 

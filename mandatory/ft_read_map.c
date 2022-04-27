@@ -6,15 +6,15 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:38:31 by izail             #+#    #+#             */
-/*   Updated: 2022/04/05 15:38:33 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/27 16:00:56 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char    **ft_read_map(t_game *game, char *path)
+char	**ft_read_map(t_game *game, char *path)
 {
-    int		fd;
+	int		fd;
 	char	*line;
 	char	*holder_map;
 	char	*holder;
@@ -37,10 +37,8 @@ char    **ft_read_map(t_game *game, char *path)
 		holder_map = ft_strjoin(holder, line);
 		ft_free(line, holder);
 	}
-    game->map = map_alloc(game, holder_map);
-    free(holder_map);
-    close(fd);
-	return (game->map);
+	return (game->map = map_alloc(game, holder_map), free(holder_map),
+		close(fd), game->map);
 }
 
 int	map_correct_form(t_game *game)

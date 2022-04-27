@@ -6,7 +6,7 @@
 /*   By: izail <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:23:38 by izail             #+#    #+#             */
-/*   Updated: 2022/04/05 14:23:39 by izail            ###   ########.fr       */
+/*   Updated: 2022/04/27 18:15:50 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ char	*get_next_line(int fd)
 		n = read(fd, buff, 1);
 		if (n <= 0)
 			continue ;
-		if(n > 0 && buff[0] == '\0')
-			return (NULL);
 		d_ptr = line;
 		line = ft_strjoin(line, buff);
 		free(d_ptr);
