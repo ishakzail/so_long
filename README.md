@@ -14,7 +14,3 @@ You are free to make your own map ;).
 <img width="1094" alt="so_long Mandatory" src="./so_long_img.png">
   <br>
 <img width="1094" alt="so_long Bonus" src="./so_long_bonus_img.png">
-
-<img src="so_long_img.png" alt="so_long mandatory"/>
-
-<img src="so_long_bonus_img.png" alt="so_long mandatory"/>
