@@ -13,5 +13,6 @@ You are free to make your own map ;).
 # PREVIEW
 - MANDATORY
 <img width="1094" alt="so_long Mandatory" src="./so_long_img.png">
+
 - BONUS
 <img width="1094" alt="so_long Bonus" src="./so_long_bonus_img.png">
